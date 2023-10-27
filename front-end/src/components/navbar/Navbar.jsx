@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -41,16 +42,16 @@ const Navbar = () => {
               )}
             </div>
 
-            <h1 className="font-medium text-2xl"> Pokemon</h1>
+            <Link to={'/'} className="font-medium text-2xl"> Pokemon</Link>
           </div>
           <div className="hidden md:inline-flex">
-            <h1 className="mx-3 cursor-pointer hover:font-semibold  ">
+            <Link to={'/'} className="mx-3 cursor-pointer hover:font-semibold  ">
               Poke'mon
-            </h1>
-            <h1 className="mx-3 cursor-pointer hover:font-semibold  ">About</h1>
-            <h1 className="mx-3 cursor-pointer hover:font-semibold  ">
+            </Link>
+            <Link to={'/about'} className="mx-3 cursor-pointer hover:font-semibold  ">About</Link>
+            <Link to={'/contact'} className="mx-3 cursor-pointer hover:font-semibold  ">
               Contacts
-            </h1>
+            </Link>
           </div>
           <div className="bg-gray-300 px-3 py-2 rounded-md font-medium hover:bg-gray-400 hover:text-white hover:duration-300 cursor-pointer">
             {" "}
@@ -59,18 +60,15 @@ const Navbar = () => {
         </div>
       </div>
       {toggleMenu ? (
-        <div
-          className="flex flex-col justify-center w-full border border-gray-300  md:hidden
-       "
-        >
-            <div className="p-2">
-            <h1 className="my-2 translate-x-5 cursor-pointer hover:font-semibold  ">
+        <div className="flex flex-col justify-center w-full border border-gray-300  md:hidden">
+            <div className="p-2 flex flex-col">
+            <Link to={'/'} className="my-2 translate-x-5 cursor-pointer hover:font-semibold  ">
               Poke'mon
-            </h1>
-            <h1 className="my-2 translate-x-5  cursor-pointer hover:font-semibold  ">About</h1>
-            <h1 className="my-2 translate-x-5  cursor-pointer hover:font-semibold  ">
+            </Link>
+            <Link to={'/about'} className="my-2 translate-x-5  cursor-pointer hover:font-semibold  ">About</Link>
+            <Link to={'/contact'} className="my-2 translate-x-5  cursor-pointer hover:font-semibold  ">
               Contacts
-            </h1>
+            </Link>
             </div>
         </div>
       ) : (
