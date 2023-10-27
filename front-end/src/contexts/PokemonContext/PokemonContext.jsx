@@ -12,10 +12,10 @@ const PokemonContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(pokemonReducer, initialState);
 
   // fetchPokemon mainpage
-  const fetchPokemon = async () => {
+  const fetchPokemon = async (val) => {
     const poke = []
     try {
-      const index = 15+2;
+      const index = 17 + val;
       setPokemonLoading(false);
       for (let i = 1; i < index ; i++) {
        const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`)
