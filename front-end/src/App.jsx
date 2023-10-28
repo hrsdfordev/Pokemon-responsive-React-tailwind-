@@ -1,12 +1,13 @@
-import { useState } from 'react'
+import {default as Router} from "./routers/ConnectRoutes";
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
+    <Router/>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
