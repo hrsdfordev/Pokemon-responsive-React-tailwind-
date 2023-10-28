@@ -7,7 +7,11 @@ const About = () => {
     toggleMenuBack(false)
   },[])
   return (
-    <div className='w-screen h-screen bg-gray-400'>About</div>
+    <div className='w-screen h-screen flex items-center justify-center'>
+      <div className=''>
+        About Pages
+      </div>
+    </div>
   )
 }
 

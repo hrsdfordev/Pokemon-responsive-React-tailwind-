@@ -7,7 +7,6 @@ import { changeColorTypes } from "../hooks/FillterChangeColor";
 
 
 const Detail = () => {
-  const navigate = useNavigate()
   let { id } = useParams();
   const { getPokemonByName, state, pokemonLoading, toggleMenuBack } = usePokemon();
   

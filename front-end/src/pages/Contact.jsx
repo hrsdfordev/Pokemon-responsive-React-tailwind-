@@ -8,7 +8,11 @@ const Contact = () => {
     toggleMenuBack(false)
   },[])
   return (
-    <div className='w-screen h-screen bg-gray-400 '> Contact </div>
+    <div className='w-screen h-screen flex items-center justify-center'>
+      <div className=''>
+        Contact Pages
+      </div>
+    </div>
   )
 }
 

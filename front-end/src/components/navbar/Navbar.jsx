@@ -58,10 +58,10 @@ const Navbar = () => {
               Contacts
             </Link>
           </div>
-          <div className="bg-gray-300 px-3 py-2 rounded-md font-medium hover:bg-gray-400 hover:text-white hover:duration-300 cursor-pointer">
+          <Link to={'/detail/1'} className="bg-gray-300 px-3 py-2 rounded-md font-medium hover:bg-gray-400 hover:text-white hover:duration-300 cursor-pointer">
             {" "}
             Get Started{" "}
-          </div>
+          </Link>
         </div>
       </div>
       {toggleMenu ? (
