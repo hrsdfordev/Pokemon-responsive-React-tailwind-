@@ -21,7 +21,7 @@ const PokemonContextProvider = ({ children }) => {
        const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`)
        poke.push(res.data)
       }
-      dispatch({type : "test" , payload: poke})
+      dispatch({type : "LOOP POKEMON" , payload: poke})
     } catch (error) {
       console.log(error);
     } finally {
@@ -29,8 +29,33 @@ const PokemonContextProvider = ({ children }) => {
     }
   };
 
+  const [toggleMenu, setToggleMenu] = useState(false);
+
+  const handleToggleMenu = () => {
+    setToggleMenu((prev) => !prev);
+  };
+
+  const toggleMenuBack = (val) => {
+    setToggleMenu(val)
+  }
+
+  const getPokemonByName = async(id) => {
+    try {
+      setPokemonLoading(false)
+      const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
+      dispatch({type: 'GET POKEMON BY NAME' , payload : res.data})
+      
+    } catch (error) {
+      console.log(error);
+    }
+    finally{
+      setPokemonLoading(true)
+    }
+  }
+
+
   return (
-    <PokemonContext.Provider value={{fetchPokemon , state , pokemonLoading}}>{children}</PokemonContext.Provider>
+    <PokemonContext.Provider value={{fetchPokemon , state , pokemonLoading , toggleMenu , handleToggleMenu , toggleMenuBack , getPokemonByName}}>{children}</PokemonContext.Provider>
   );
 };
 

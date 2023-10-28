@@ -12,16 +12,17 @@ import CardMenu from "../components/card/CardMenu";
 const Home = () => {
 
   const [plusIndex , setPlusIndex] = useState(0)
-  const { state, fetchPokemon, pokemonLoading } = usePokemon();
+  const { state, fetchPokemon, pokemonLoading , toggleMenuBack } = usePokemon();
 
   useEffect(() => {
+    toggleMenuBack(false)
     fetchPokemon(plusIndex);
-    console.log(state.pokemon);
   }, [plusIndex]);
 
   return (
     <>
-      <Banner />
+  
+    <Banner />
       <div className="flex flex-wrap gap-3 justify-center mx-auto lg:container">
         {listMenuCard.map((val, idx) => (
           <CardMenu avatar={val.avatar} title={val.title} detail={val.detail} />
@@ -31,23 +32,22 @@ const Home = () => {
         <LoadinPoke/>
       ) : (
         <div className="flex bg-gray-500 p-5 flex-wrap gap-3 justify-center mx-auto lg:container">
-          {state.pokemon.map((val, idx) => (
+          {state?.pokemon?.map((val, idx) => (
             <>
               <CardPokemon
-                key={idx}
-                image={val.sprites.other.home.front_default}
-                name={val.name}
-                type={val.types}
+                id={val?.id}
+                image={val?.sprites?.other?.home?.front_default}
+                name={val?.name}
+                type={val?.types}
               />
             </>
           ))}
         </div>
       )}
       <div className="flex justify-center mt-5">
-
       <button className="px-3 py-2 text-lg font-medium border border-gray-300 rounded-md" onClick={()=>setPlusIndex((index) => index+12)}> Load more.... </button>
       </div>
-    </>
+  </> 
   )
 }
 

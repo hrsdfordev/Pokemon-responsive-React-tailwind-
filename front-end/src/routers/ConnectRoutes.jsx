@@ -5,6 +5,7 @@ import About from "../pages/About";
 import Contact from "../pages/Contact";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
+import Detail from "../pages/Detail";
 
 const ConnectRoutes = () => {
   return (
@@ -36,6 +37,16 @@ const ConnectRoutes = () => {
             <>
               <Navbar />
               <Contact />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/detail/:id"
+          element={
+            <>
+              <Navbar />
+              <Detail />
               <Footer />
             </>
           }

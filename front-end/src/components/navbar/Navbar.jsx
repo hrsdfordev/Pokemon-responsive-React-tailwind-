@@ -1,14 +1,15 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { usePokemon } from "../../contexts";
+import Pokeball from '../../assets/images/logo/pokeball.png'
 
 const Navbar = () => {
-  const [toggleMenu, setToggleMenu] = useState(false);
 
-  const handleToggleMenu = () => {
-    setToggleMenu((prev) => !prev);
-  };
+  const {toggleMenu , handleToggleMenu} = usePokemon()
 
+
+  
   return (
     <>
       <div className="container mx-auto p-5 shadow-md sm:container ">
@@ -41,10 +42,14 @@ const Navbar = () => {
                 </svg>
               )}
             </div>
-
-            <Link to={'/'} className="font-medium text-2xl"> Pokemon</Link>
+            <Link className="flex" to={'/'}>
+            <img className="md:mx-2" src={Pokeball} alt="" width={25} />
+            <div className="font-medium text-2xl"> Pokemon</div>
+            </Link>
+            
           </div>
           <div className="hidden md:inline-flex">
+            
             <Link to={'/'} className="mx-3 cursor-pointer hover:font-semibold  ">
               Poke'mon
             </Link>
